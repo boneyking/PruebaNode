@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  a(href='/create') Crear Nuevo Producto
+  ul#products
+    if(typeof(productos) != 'undefined')
+      each item in productos
+        li #{item.nombre} - $#{item.precio} -
+          a(href='/edit?id=#{item._id}') Editar
+    else
+      p no hay lista

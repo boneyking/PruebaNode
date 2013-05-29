@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  form(method='post', onclick='if(!valida()){return false;}').form-horizontal
+    fieldset
+      legend Productos
+      div.control-group
+        label(for='nombre', class='control-label') Nombre
+        div.controls
+          input(type='text', name='nombre', placeholder='Nombre de Producto', class='input-large', id='nombre', 
+            value='#{producto.nombre}')
+          div#error_nombre
+      div.control-group
+        label(for='descripcion', class='control-label') Descripción
+        div.controls
+          textarea(name='descripcion', placeholder='Descripción de Producto', id='descripcion') #{producto.descripcion}
+          div#error_descripcion
+      div.control-group
+        label(for='precio', class='control-label') Precio
+        div.controls
+          input(type='text', name='precio', placeholder='Precio de Producto', class='input-large', id='precio', 
+            value='#{producto.precio}')
+          div#error_precio
+      input(type='hidden', name='id', value='#{id}')
+      div.control-group
+        div.controls
+          button(class='btn btn-primary', name='Guardar') Guardar Producto
